@@ -13,10 +13,14 @@ import Image from 'next/image';
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        marginTop: '50px',
     },
     projectImage: {
-        height: '180px',
-        width: '180px',
+        height: '526px',
+        width: '496px',
+        borderTopRightRadius: "30px",
+        borderBottomRightRadius: "30px",
+
     },
     details: {
         display: 'flex',
@@ -49,23 +53,13 @@ export default function ProjectCard() {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
-                        Live From Space
+                        Project 1
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
-                        Mac Miller
+                        I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.
                     </Typography>
                 </CardContent>
-                <div className={classes.controls}>
-                    <IconButton aria-label="previous">
-                        {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                    </IconButton>
-                    <IconButton aria-label="play/pause">
-                        <PlayArrowIcon className={classes.playIcon} />
-                    </IconButton>
-                    <IconButton aria-label="next">
-                        {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                    </IconButton>
-                </div>
+
             </div>
             <img className={classes.projectImage} src="/projectCard.png" />
             <CardMedia
