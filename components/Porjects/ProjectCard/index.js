@@ -4,11 +4,13 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Button } from '@material-ui/core';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Image from 'next/image';
+
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,9 +27,15 @@ const useStyles = makeStyles((theme) => ({
     details: {
         display: 'flex',
         flexDirection: 'column',
+
     },
     content: {
-        flex: '1 0 auto',
+        // flex: '1 0 auto',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+
     },
     cover: {
         width: 151,
@@ -42,6 +50,14 @@ const useStyles = makeStyles((theme) => ({
         height: 38,
         width: 38,
     },
+    button: {
+        borderRadius: "20px",
+        width: '30%',
+    },
+    textDivider: {
+        margin: '20px',
+    },
+
 }));
 
 export default function ProjectCard() {
@@ -51,14 +67,22 @@ export default function ProjectCard() {
     return (
         <Card className={classes.root}>
             <div className={classes.details}>
+
                 <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5">
-                        Project 1
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.
-                    </Typography>
+                    <div className={classes.textDivider}>
+                        <Typography component="h5" variant="h5">
+                            Project 1
+                        </Typography>
+                    </div>
+                    <div className={classes.textDivider}>
+                        <Typography variant="subtitle1" color="textSecondary">
+                            I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.
+                        </Typography></div>
+                    <div className={classes.textDivider}>
+                        <Button className={classes.button} variant='outlined' >View Porject</Button>
+                    </div>
                 </CardContent>
+
 
             </div>
             <img className={classes.projectImage} src="/projectCard.png" />
@@ -67,6 +91,6 @@ export default function ProjectCard() {
 
                 title="Live from space album cover"
             />
-        </Card>
+        </Card >
     );
 }

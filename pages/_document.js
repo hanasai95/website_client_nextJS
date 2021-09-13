@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 // Modules
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 // MUI Core
-import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ServerStyleSheets } from "@material-ui/core/styles";
 // Utils
-import theme from '../utils/theme';
+import theme from "../utils/theme";
 
 class MyDocument extends Document {
     render() {
@@ -13,7 +13,10 @@ class MyDocument extends Document {
                 <Head>
                     <meta name="theme-color" content={theme.palette.primary.main} />
 
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" />
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+                    />
                 </Head>
                 <body>
                     <Main />
@@ -53,9 +56,10 @@ MyDocument.getInitialProps = async (ctx) => {
     const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
-    ctx.renderPage = () => originalRenderPage({
-        enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
-    });
+    ctx.renderPage = () =>
+        originalRenderPage({
+            enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+        });
 
     const initialProps = await Document.getInitialProps(ctx);
 
